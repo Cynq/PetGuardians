@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="26f09057-f6ae-43c8-935f-69011a925777" name="PetGuardians" linkedPackageId="69348766-1510-4be4-a1f0-e69da3cfa3a8" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="90f183d2-74e1-453f-9033-c7574cdb4741">
+      <profileInstance Id="7cc234fc-e770-4f5f-a7f5-75001a76ac82" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="6872160d-4a2a-4e6b-8d72-f16f6d91d793">
+      <profileInstance Id="a8b671ee-df47-4ab8-87b8-418462bb4ccf" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="3a542be1-ca8b-4eaf-b629-c8af4c5f9175" name="User" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c39f2ae2-4218-49f7-9f40-1e117be1ba95" />
+        <targetEnds>
+          <association Id="6770735b-5da2-41c9-9263-054568dde147" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Register" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="ee79c7a3-76ac-495a-b41b-fddc79d76c7e" LastKnownName="Register" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d1182b66-b82b-418b-98c7-28a561ff054f" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b654be3c-f1db-4100-9c35-b448af37d698" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6e360c54-3587-4355-ad96-d38244f2f7c8" name="Register" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="dbd35f15-2bcf-424d-a94a-038078ac6f22" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a5d79b7e-ec32-4a95-a152-5d32894af004" />
+          </association>
+          <association Id="3fb68154-c8af-4cff-b0a4-91fc4b0aff44" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Comment" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="89aa5dec-6487-4deb-8dfa-f24d64f57d1e" LastKnownName="Comment" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9b1fbff2-ddb2-4864-986a-9ea1195c92e6" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="8adf828d-887d-42b2-965f-e010bfa624cc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="895e05be-1c99-4d05-af51-0bb2a10e2e5a" name="Comment" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2373f60c-d74b-4e3f-a807-e0db8379f143" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f7d4bcbe-8607-4ecf-94b0-53d86c6ea74d" />
+          </association>
+          <association Id="f2acd790-cdd6-4b71-afc1-d53521ee835d" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Make offer" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="cb60fb0b-370d-4f06-974d-a907585b878c" LastKnownName="Make offer" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="583ae794-4b57-4f9d-a85d-faeafc340755" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3190d520-c97f-43e7-b8f6-b93d5fe25034" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="acb4839f-dc47-44b4-948e-edf760cf30ed" name="Make offer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="354b9da7-226c-4df2-be1f-db1bef8876ed" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="af222fe1-00ed-48c2-86aa-d43d9125dd2a" />
+          </association>
+          <association Id="c38f09ab-3fa5-4187-8c5c-ebfbe58ef8d7" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Send message" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="dd8acd92-b4f3-41ce-b640-422677b3a83d" LastKnownName="Send message" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c0edd5be-2f13-4a95-96f2-75a6f5ce4259" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="eb4cde77-8362-4b6f-b323-cd16f611abd2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8d4dcad9-fcc6-45b1-94ab-5086a37b4563" name="Send message" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f94fa1d4-7912-49d0-968f-e1fb91bdbb29" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="5238febc-abc6-4715-919a-f96e47c69177" />
+          </association>
+          <association Id="3bbd22c2-cd6f-4a2f-b445-7767323387c0" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Read message" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="ae1e65d6-aa80-40b8-b800-ad7e4280888b" LastKnownName="Read message" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="351d0df2-117e-4ec4-be4f-4b7b7b8e2044" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f59654a7-9432-4b3d-8925-e1e02e61ef01" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7e1fd5e5-aa7b-4e56-bc68-76bb26a5fbae" name="Read message" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8acffe0f-3d0e-494a-a82b-f148aa03d666" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b4897c82-af3b-4c3d-8525-ee94d8e6c0f1" />
+          </association>
+          <association Id="78ce19d2-bbfb-4de0-b251-d7dda8fad341" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Accept offer" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="22800f8e-5a4c-4e96-8b32-974198d33657" LastKnownName="Accept offer" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5867c289-552f-4576-a2ac-029335c4ab4c" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="274f51c7-b821-4046-bfe4-5941c9b660ca" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="858eca74-f453-485a-b64f-23e1988b1343" name="Accept offer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="60c3230a-2d6f-4680-a41f-3f3fa4e61061" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="fa14d4ff-4153-4617-8d84-0928b97bbfdc" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="cf9cf57c-6bdf-41f0-a2fb-fe9fed83d421" name="PetOwner" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6c53e327-6614-43ce-aeab-cbb4a7a10723" />
+        <generalsInternal>
+          <generalization Id="229af893-a957-4111-9b92-9fae936a2023" isSubstitutable="false">
+            <actorMoniker Id="3a542be1-ca8b-4eaf-b629-c8af4c5f9175" LastKnownName="User" />
+            <elementDefinition Id="4a916245-674f-4b7c-97fb-33321de74cc6" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="0183eda3-2502-4635-a7a3-be8cbdfb781d" name="Guardian" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f83c8d3f-eca2-4e36-a6e4-890cda7fb951" />
+        <generalsInternal>
+          <generalization Id="56ce7334-6cb2-4f54-b84a-cc80b27d40ef" isSubstitutable="false">
+            <actorMoniker Id="3a542be1-ca8b-4eaf-b629-c8af4c5f9175" LastKnownName="User" />
+            <elementDefinition Id="85c526a9-ff8f-412b-b3c3-a805585d02f7" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="cb60fb0b-370d-4f06-974d-a907585b878c" name="Make offer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f1d2e60a-e464-4613-982b-0bfa58a6ab34" />
+        <additions>
+          <include Id="ca1bf03f-5708-4a0e-b338-5694a4d3dc89">
+            <useCaseMoniker Id="e1b73137-ace4-4b34-99d2-c59ac34c9ebd" LastKnownName="Authorize" />
+            <elementDefinition Id="4021ba4f-6068-4875-a726-390a5b60e7e8" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="22800f8e-5a4c-4e96-8b32-974198d33657" name="Accept offer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="143804c4-3aa7-4c93-b618-68cde2c4ec58" />
+        <additions>
+          <include Id="51bacd83-6c30-4391-bf77-af0acc7ab10f">
+            <useCaseMoniker Id="82f6df9b-c022-448f-b837-415ea9e99fe3" LastKnownName="Search offer" />
+            <elementDefinition Id="602b4bdb-4355-4800-9def-52839e38681a" />
+          </include>
+          <include Id="3c41490f-c20f-4f68-a3bb-a7d266c2bb3e">
+            <useCaseMoniker Id="e1b73137-ace4-4b34-99d2-c59ac34c9ebd" LastKnownName="Authorize" />
+            <elementDefinition Id="8c2b29ab-bd99-4194-91fb-5bbb8dfe4e1a" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="89aa5dec-6487-4deb-8dfa-f24d64f57d1e" name="Comment" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2f0a93cf-4e9b-4d11-bbe1-ea076cdc23a7" />
+        <additions>
+          <include Id="4b730b9e-9bca-404c-b4fe-f51bb7d50545">
+            <useCaseMoniker Id="e1b73137-ace4-4b34-99d2-c59ac34c9ebd" LastKnownName="Authorize" />
+            <elementDefinition Id="45fd9472-34ce-4cb9-a327-ee00297e8329" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="dd8acd92-b4f3-41ce-b640-422677b3a83d" name="Send message" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e7203f25-d7e8-40fb-8c59-31b29715be7b" />
+        <additions>
+          <include Id="dd19e277-e29b-43b8-9caf-7987f445ddec">
+            <useCaseMoniker Id="e1b73137-ace4-4b34-99d2-c59ac34c9ebd" LastKnownName="Authorize" />
+            <elementDefinition Id="f0ae7ab5-d2ed-4b36-ab4d-1ad41067aa92" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="ae1e65d6-aa80-40b8-b800-ad7e4280888b" name="Read message" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d6cfddde-514b-48df-b1f9-3bb55e9a95b7" />
+        <additions>
+          <include Id="44e57716-4c1a-40b4-8441-5af671d30c11">
+            <useCaseMoniker Id="e1b73137-ace4-4b34-99d2-c59ac34c9ebd" LastKnownName="Authorize" />
+            <elementDefinition Id="56941f0d-f124-4c64-bf9e-765b5935e649" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="ee79c7a3-76ac-495a-b41b-fddc79d76c7e" name="Register" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="51b1067d-45cb-4491-90f6-645a92de1455" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="e1b73137-ace4-4b34-99d2-c59ac34c9ebd" name="Authorize" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8a575fe3-3c13-4043-9fbd-b36a7cae1bb7" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="82f6df9b-c022-448f-b837-415ea9e99fe3" name="Search offer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="92973af8-30f4-45c6-890b-d28c0764e76b" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="69348766-1510-4be4-a1f0-e69da3cfa3a8" name="Base">
+    <elementDefinition Id="f3425053-7a1a-4670-802b-1d4e16ff85c3" />
+  </package>
+</useCaseModelRoot>
