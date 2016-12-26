@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 14.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2016-12-26T10:59:42" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2016-12-26T10:59:42" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2016-12-26T10:59:42" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-12-26T10:59:42" Importance="Diagnostic" Text="ProjectPath = ..\BaseLib\BaseLib.csproj" />
+  <Message Timestamp="2016-12-26T10:59:42" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-12-26T10:59:42" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-12-26T10:59:42" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-12-26T10:59:42" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-12-26T10:59:42" Importance="Medium" Text="Base's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'Base::Guardian' -  (Class), 'Base::GuardianOffer' -  (Class), 'Base::Comment' -  (Class), 'Base::Message' -  (Class), 'Base::Offer' -  (Class), 'Base::User' -  (Class), 'Base::Address' -  (Class), 'Base::PetOwner' -  (Class), 'Base::OwnerOffer' -  (Class) " />
+  <Message Timestamp="2016-12-26T10:59:43" Importance="Medium" Text="Project Added: D:\Programowanie\Visual Studio 2015\Projects\PetGuardians\BaseLib\BaseLib.csproj" />
+  <Message Timestamp="2016-12-26T10:59:43" Importance="Medium" Text="'Base::Guardian' -  (Class) : success (file replaced) - D:\Programowanie\Visual Studio 2015\Projects\PetGuardians\BaseLib\GeneratedCode\Guardian.cs" />
+  <Message Timestamp="2016-12-26T10:59:43" Importance="Medium" Text="'Base::GuardianOffer' -  (Class) : success (file replaced) - D:\Programowanie\Visual Studio 2015\Projects\PetGuardians\BaseLib\GeneratedCode\GuardianOffer.cs" />
+  <Message Timestamp="2016-12-26T10:59:43" Importance="Medium" Text="'Base::Comment' -  (Class) : success (file replaced) - D:\Programowanie\Visual Studio 2015\Projects\PetGuardians\BaseLib\GeneratedCode\Comment.cs" />
+  <Message Timestamp="2016-12-26T10:59:43" Importance="Medium" Text="'Base::Message' -  (Class) : success (file replaced) - D:\Programowanie\Visual Studio 2015\Projects\PetGuardians\BaseLib\GeneratedCode\Message.cs" />
+  <Message Timestamp="2016-12-26T10:59:43" Importance="Medium" Text="'Base::Offer' -  (Class) : success (file replaced) - D:\Programowanie\Visual Studio 2015\Projects\PetGuardians\BaseLib\GeneratedCode\Offer.cs" />
+  <Message Timestamp="2016-12-26T10:59:43" Importance="Medium" Text="'Base::User' -  (Class) : success (file replaced) - D:\Programowanie\Visual Studio 2015\Projects\PetGuardians\BaseLib\GeneratedCode\User.cs" />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Medium" Text="'Base::Address' -  (Class) : success (file replaced) - D:\Programowanie\Visual Studio 2015\Projects\PetGuardians\BaseLib\GeneratedCode\Address.cs" />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Medium" Text="'Base::PetOwner' -  (Class) : success (file replaced) - D:\Programowanie\Visual Studio 2015\Projects\PetGuardians\BaseLib\GeneratedCode\PetOwner.cs" />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Medium" Text="'Base::OwnerOffer' -  (Class) : success (file replaced) - D:\Programowanie\Visual Studio 2015\Projects\PetGuardians\BaseLib\GeneratedCode\OwnerOffer.cs" />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="ProjectPath = ..\BaseLib\BaseLib.csproj" />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Medium" Text="Base's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'Base::Guardian' -  (Class), 'Base::GuardianOffer' -  (Class), 'Base::Comment' -  (Class), 'Base::Message' -  (Class), 'Base::Offer' -  (Class), 'Base::User' -  (Class), 'Base::Address' -  (Class), 'Base::PetOwner' -  (Class), 'Base::OwnerOffer' -  (Class) " />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::Guardian' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::GuardianOffer' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::Comment' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::Message' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::Offer' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::User' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::Address' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::PetOwner' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::OwnerOffer' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="The selection included 15 elements which were not bound to a template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::' -  (Association): no bound template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::' -  (Association): no bound template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::' -  (Association): no bound template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'d36dfbca-9e19-41e5-bc2a-1c36488686fa' -  (Generalization): no bound template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::' -  (Association): no bound template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::' -  (Association): no bound template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::' -  (Association): no bound template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::' -  (Association): no bound template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'28f11911-cae2-4b61-85fb-427aa7a92e7d' -  (Generalization): no bound template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::' -  (Association): no bound template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'a0b5b1aa-e8df-4ed3-9563-5845be38e76f' -  (Generalization): no bound template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::' -  (Association): no bound template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'0861169b-d413-4c2d-9443-886814321c61' -  (Generalization): no bound template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::' -  (Association): no bound template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="Diagnostic" Text="'Base::' -  (Association): no bound template." />
+  <Message Timestamp="2016-12-26T10:59:44" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+</Log>
