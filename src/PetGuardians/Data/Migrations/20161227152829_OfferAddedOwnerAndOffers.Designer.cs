@@ -8,9 +8,10 @@ using PetGuardians.Data;
 namespace PetGuardians.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161227152829_OfferAddedOwnerAndOffers")]
+    partial class OfferAddedOwnerAndOffers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -186,8 +187,6 @@ namespace PetGuardians.Data.Migrations
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("TwoFactorEnabled");
-
-                    b.Property<int>("Type");
 
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);

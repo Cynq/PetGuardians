@@ -8,6 +8,8 @@ namespace PetGuardians.Models.Guardian
 {
     public class OfferVm
     {
+        public int Id { get; set; }
+
         [Display(Name = "Temat")]
         [Required(ErrorMessage = "To pole jest wymagane!")]
         public string Name { get; set; }
@@ -34,5 +36,7 @@ namespace PetGuardians.Models.Guardian
         [Display(Name = "Miejscowość")]
         [Required(ErrorMessage = "To pole jest wymagane!")]
         public string Town { get; set; }
+
+        public bool CanApply { get; set; }
     }
 }

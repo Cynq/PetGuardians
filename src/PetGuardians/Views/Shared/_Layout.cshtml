@@ -30,8 +30,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Guardian" asp-action="Index">Szukaj opieki</a></li>
-                    <li><a asp-area="" asp-controller="Guardian" asp-action="Create">Zaoferuj opiekę</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="" asp-controller="Guardian" asp-action="Index">Szukaj opieki</a></li>
+                        <li><a asp-area="" asp-controller="Guardian" asp-action="Create">Zaoferuj opiekę</a></li>
+                    }
                     <li><a asp-area="" asp-controller="Home" asp-action="About">O nas</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Kontakt</a></li>
                 </ul>

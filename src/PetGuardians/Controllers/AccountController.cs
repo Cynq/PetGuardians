@@ -5,9 +5,11 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
+using PetGuardians.Data;
 using PetGuardians.Entities;
 using PetGuardians.Models;
 using PetGuardians.Models.AccountViewModels;
@@ -108,14 +110,15 @@ namespace PetGuardians.Controllers
             {
                 var user = new ApplicationUser
                 {
-                    
                     UserName = model.Email,
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Address = new Address { Street = model.Street, PostNumber = model.PostNumber, Town = model.Town},
-                    PhoneNumber = model.PhoneNumber
+                    PhoneNumber = model.PhoneNumber,
+                    Type = model.UserType
                 };
+
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

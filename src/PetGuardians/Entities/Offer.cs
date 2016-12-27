@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace PetGuardians.Entities
@@ -25,5 +26,8 @@ namespace PetGuardians.Entities
         public DateTime To { get; set; }
         
         public int Price { get; set; }
+
+        public ApplicationUser Owner { get; set; }
+        public ICollection<ApplicationUser> Offers { get; set; }
     }
 }

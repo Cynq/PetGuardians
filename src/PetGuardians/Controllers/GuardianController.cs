@@ -1,14 +1,20 @@
+using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PetGuardians.Data;
 using PetGuardians.Entities;
+using PetGuardians.Models.AccountViewModels;
 using PetGuardians.Models.Guardian;
+
 
 namespace PetGuardians.Controllers
 {
     public class GuardianController : Controller
     {
         private ApplicationDbContext _context;
+        private string UserId => User.FindFirstValue(ClaimTypes.NameIdentifier);
 
         public GuardianController(ApplicationDbContext context)
         {
@@ -18,16 +24,22 @@ namespace PetGuardians.Controllers
         [Route("opieka/szukaj")]
         public IActionResult Index()
         {
-            var offers = _context.Offers.Select(x => new OfferVm
-            {
-                Name = x.Name,
-                Description = x.Description,
-                From = x.From,
-                To = x.To,
-                Price = x.Price,
-                Added = x.Added,
-                Town = x.Town
-            }).ToList();
+            var user = _context.Users.FirstOrDefault(x => x.Id == UserId);
+
+            var offers = _context.Offers
+                .Include(x => x.Offers)
+                .Select(x => new OfferVm
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Description = x.Description,
+                    From = x.From,
+                    To = x.To,
+                    Price = x.Price,
+                    Added = x.Added,
+                    Town = x.Town,
+                    CanApply = !x.Offers.Select(u => u.Id).Contains(UserId) && user.Type == UserType.Guardian
+                }).ToList();
 
             return View(offers);
         }
@@ -44,6 +56,7 @@ namespace PetGuardians.Controllers
         {
             if (ModelState.IsValid)
             {
+                var usr = _context.Users.FirstOrDefault(x => x.Id == UserId);
                 var offer = new Offer
                 {
                     Name = model.Name,
@@ -51,12 +64,43 @@ namespace PetGuardians.Controllers
                     From = model.From,
                     To = model.To,
                     Price = model.Price,
-                    Town = model.Town
+                    Town = model.Town,
+                    Owner = usr
                 };
                 _context.Offers.Add(offer);
                 _context.SaveChanges();
             }
             return View("Index");
+        }
+
+        [Route("opieka/{id}")]
+        public IActionResult Apply(int id)
+        {
+            var user = _context.Users.FirstOrDefault(x => x.Id == UserId);
+            var offer = _context.Offers.Include(x => x.Offers).FirstOrDefault(x => x.Id == id);
+            offer.Offers.Add(user);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        [Route("opieka/moje")]
+        public IActionResult MyOffers()
+        {
+            var user = _context.Users.FirstOrDefault(x => x.Id == UserId);
+            List<Offer> offers;
+
+            offers = user.Type == UserType.Owner 
+                ? _context.Offers.Where(x => x.Owner.Id == UserId).ToList() 
+                : _context.Offers.Where(x => x.Offers.Select(y => y.Id).Contains(UserId)).ToList();
+
+            var model = new MyOffersVm
+            {
+                Offers = offers,
+                UserType = user.Type
+            };
+
+            return View(model);
         }
     }
 }
