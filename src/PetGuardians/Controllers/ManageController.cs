@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using PetGuardians.Models;
+using PetGuardians.Data;
+using PetGuardians.Entities;
 using PetGuardians.Models.ManageViewModels;
 using PetGuardians.Services;
 
@@ -20,18 +20,20 @@ namespace PetGuardians.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
+        private readonly ApplicationDbContext _context;
 
         public ManageController(
         UserManager<ApplicationUser> userManager,
         SignInManager<ApplicationUser> signInManager,
         IEmailSender emailSender,
         ISmsSender smsSender,
-        ILoggerFactory loggerFactory)
+        ILoggerFactory loggerFactory, ApplicationDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _smsSender = smsSender;
+            _context = context;
             _logger = loggerFactory.CreateLogger<ManageController>();
         }
 
@@ -56,6 +58,12 @@ namespace PetGuardians.Controllers
             }
             var model = new IndexViewModel
             {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Street = user.Address.Street,
+                PostNumber = user.Address.PostNumber,
+                Town = user.Address.Town,
+                Email = user.Email,
                 HasPassword = await _userManager.HasPasswordAsync(user),
                 PhoneNumber = await _userManager.GetPhoneNumberAsync(user),
                 TwoFactor = await _userManager.GetTwoFactorEnabledAsync(user),
@@ -350,9 +358,9 @@ namespace PetGuardians.Controllers
             Error
         }
 
-        private Task<ApplicationUser> GetCurrentUserAsync()
+        private async Task<ApplicationUser> GetCurrentUserAsync()
         {
-            return _userManager.GetUserAsync(HttpContext.User);
+            return await _context.Users.Include(x => x.Address).FirstOrDefaultAsync(x => x.UserName == HttpContext.User.Identity.Name);
         }
 
         #endregion

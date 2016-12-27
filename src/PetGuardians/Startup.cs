@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using PetGuardians.Data;
+using PetGuardians.Entities;
 using PetGuardians.Models;
 using PetGuardians.Services;
 

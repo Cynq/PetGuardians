@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
+using PetGuardians.Entities;
 using PetGuardians.Models;
 using PetGuardians.Models.AccountViewModels;
 using PetGuardians.Services;
@@ -112,7 +113,7 @@ namespace PetGuardians.Controllers
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    Address = model.Address,
+                    Address = new Address { Street = model.Street, PostNumber = model.PostNumber, Town = model.Town},
                     PhoneNumber = model.PhoneNumber
                 };
                 var result = await _userManager.CreateAsync(user, model.Password);

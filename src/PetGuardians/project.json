@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-PetGuardians-c18a9a86-b3b4-4e8e-84bc-191dbef979dc",
 
   "dependencies": {
@@ -43,7 +43,8 @@
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "PetGuardians.Core": "1.0.0-*"
   },
 
   "tools": {

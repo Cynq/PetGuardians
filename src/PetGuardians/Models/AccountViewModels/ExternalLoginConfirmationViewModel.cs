@@ -9,7 +9,7 @@ namespace PetGuardians.Models.AccountViewModels
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [EmailAddress]
+        [System.ComponentModel.DataAnnotations.EmailAddress]
         public string Email { get; set; }
     }
 }

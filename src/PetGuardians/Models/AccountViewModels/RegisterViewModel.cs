@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using PetGuardians.Entities;
 
 namespace PetGuardians.Models.AccountViewModels
 {
@@ -13,12 +14,7 @@ namespace PetGuardians.Models.AccountViewModels
         [StringLength(50, ErrorMessage = "To pole musi posiadać od {2} do {1} znaków.", MinimumLength = 2)]
         [Display(Name = "Nazwisko")]
         public string LastName { get; set; }
-
-        [Required(ErrorMessage = "To pole jest wymagane!")]
-        [StringLength(50, ErrorMessage = "To pole musi posiadać od {2} do {1} znaków.", MinimumLength = 6)]
-        [Display(Name = "Adres")]
-        public string Address { get; set; }
-
+        
         [Required(ErrorMessage = "To pole jest wymagane!")]
         [Display(Name = "Numer kontaktowy")]
         [StringLength(9, ErrorMessage = "To pole musi posiadać 9 cyfr np: 784554112")]
@@ -42,7 +38,24 @@ namespace PetGuardians.Models.AccountViewModels
 
         [Display(Name = "Typ konta")]
         [Required(ErrorMessage = "To pole jest wymagane!")]
+
         public UserType UserType { get; set; }
+        
+        [StringLength(50, ErrorMessage = "To pole musi posiadać od {2} do {1} znaków.", MinimumLength = 6)]
+        [Required(ErrorMessage = "To pole jest wymagane!")]
+        [Display(Name = "Ulica i numer")]
+        public string Street { get; set; }
+
+        [StringLength(20, ErrorMessage = "To pole musi posiadać od {2} do {1} znaków.", MinimumLength = 2)]
+        [Required(ErrorMessage = "To pole jest wymagane!")]
+        [Display(Name = "Miasto")]
+        public string Town { get; set; }
+
+        [StringLength(6, ErrorMessage = "To pole musi posiadać 6 znaków.")]
+        [Required(ErrorMessage = "To pole jest wymagane!")]
+        [Display(Name = "Kod pocztowy")]
+        public string PostNumber { get; set; }
+
     }
 
     public enum UserType
