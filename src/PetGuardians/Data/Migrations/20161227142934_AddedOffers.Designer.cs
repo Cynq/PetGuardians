@@ -8,9 +8,10 @@ using PetGuardians.Data;
 namespace PetGuardians.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161227142934_AddedOffers")]
+    partial class AddedOffers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -218,8 +219,6 @@ namespace PetGuardians.Data.Migrations
                     b.Property<int>("Price");
 
                     b.Property<DateTime>("To");
-
-                    b.Property<string>("Town");
 
                     b.HasKey("Id");
 
