@@ -24,7 +24,11 @@
                 <td style="white-space: nowrap;">@offer.Price zł</td>
                 @if (offer.CanApply)
                 {
-                    <td><a href="/opieka/@offer.Id" class="btn btn-success">Aplikuj</a></td>
+                    <td><a href="/opieka/aplikuj/@offer.Id" class="btn btn-success">Aplikuj</a></td>
+                }
+                else if(offer.MyOffer)
+                {
+                    <td><a href="/opieka/@offer.Id" class="btn btn-default">Moja oferta</a></td>
                 }
                 <td><a href="/wiadomosci/nowa/@offer.Id" class="btn btn-info">Wyślij pytanie</a></td>
             </tr>

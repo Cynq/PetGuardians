@@ -37,6 +37,8 @@ namespace PetGuardians.Models.Guardian
         [Required(ErrorMessage = "To pole jest wymagane!")]
         public string Town { get; set; }
 
+        public bool MyOffer { get; set; }
+
         public bool CanApply { get; set; }
     }
 }

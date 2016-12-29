@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PetGuardians.Data;
 using PetGuardians.Entities;
+using PetGuardians.Models;
 using PetGuardians.Models.AccountViewModels;
 using PetGuardians.Models.Guardian;
 
@@ -38,6 +39,7 @@ namespace PetGuardians.Controllers
                     Price = x.Price,
                     Added = x.Added,
                     Town = x.Town,
+                    MyOffer = UserId == x.Owner.Id,
                     CanApply = !x.Offers.Select(u => u.Id).Contains(UserId) && user.Type == UserType.Guardian
                 }).ToList();
 
@@ -70,10 +72,10 @@ namespace PetGuardians.Controllers
                 _context.Offers.Add(offer);
                 _context.SaveChanges();
             }
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
-        [Route("opieka/{id}")]
+        [Route("opieka/aplikuj/{id}")]
         public IActionResult Apply(int id)
         {
             var user = _context.Users.FirstOrDefault(x => x.Id == UserId);
@@ -101,6 +103,49 @@ namespace PetGuardians.Controllers
             };
 
             return View(model);
+        }
+
+        [Route("opieka/{id}")]
+        public IActionResult My(int id)
+        {
+            var offer = _context.Offers
+                .Include(x => x.Owner)
+                .Include(x => x.Offers)
+                .FirstOrDefault(x => x.Id == id);
+            if (offer.Owner.Id == UserId)
+            {
+                return View(offer);
+            }
+            return RedirectToAction("Index");
+        }
+
+        [Route("opieka/edytuj/{id}")]
+        public IActionResult Edit(int id)
+        {
+            var offer = _context.Offers.Include(x => x.Owner).FirstOrDefault(x => x.Id == id);
+            if (offer.Owner.Id == UserId)
+            {
+                return View(offer);
+            }
+            return RedirectToAction("Index");
+        }
+
+        [Route("opieka/edytuj/{id}")]
+        [HttpPost]
+        public IActionResult Edit(Offer model)
+        {
+            if (model.Owner.Id == UserId)
+            {
+                
+                _context.Entry(model).State = EntityState.Modified;
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Aprove()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
