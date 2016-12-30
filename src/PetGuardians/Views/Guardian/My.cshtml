@@ -16,8 +16,8 @@
                 foreach (var usr in Model.Offers)
                 {
                     @($"{usr.FirstName} {usr.LastName}")
-                    <a class="btn btn-default" asp-action="Create" asp-controller="Messages">napisz</a>
-                    <a class="btn btn-default" asp-action="Aprove" asp-controller="Guardian">zaakceptuj</a>
+                    <a class="btn btn-default" href="/wiadomoœci/nowa/@usr.Id">napisz</a>
+                    <a class="btn btn-default" href="/wiadomoœci/nowa/@usr.Id">zaakceptuj</a>
                 }
             }
             else

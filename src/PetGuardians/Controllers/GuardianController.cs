@@ -143,7 +143,8 @@ namespace PetGuardians.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Aprove()
+        [Route("opieka/zaakceptuj/{id}")]
+        public IActionResult Aprove(string id)
         {
             throw new System.NotImplementedException();
         }

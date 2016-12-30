@@ -1,7 +1,48 @@
-Ôªø@model dynamic
+@model List<PetGuardians.Entities.Message>
 
 @{
-    ViewBag.Title = "moje wiadomo≈õci";
+    ViewBag.Title = "moje wiadomoúci";
 }
 
-<h2>moje wiadomo≈õci</h2>
+<h2>moje wiadomoúci</h2>
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            treúÊ
+        </th>
+        <th>
+            data wys≥ania
+        </th>
+        <th>
+            uøytkownik
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Body)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SentTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.To)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

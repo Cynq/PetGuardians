@@ -17,6 +17,7 @@ namespace PetGuardians.Data
         }
 
         public DbSet<Offer> Offers { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -26,5 +27,6 @@ namespace PetGuardians.Data
             //For example, you can rename the ASP.NET Identity table names and more.
             //Add your customizations after calling base.OnModelCreating(builder);
     }
+
 }
 }
