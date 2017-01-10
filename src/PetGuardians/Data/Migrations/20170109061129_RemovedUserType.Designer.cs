@@ -8,9 +8,10 @@ using PetGuardians.Data;
 namespace PetGuardians.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170109061129_RemovedUserType")]
+    partial class RemovedUserType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -238,8 +239,6 @@ namespace PetGuardians.Data.Migrations
                     b.Property<string>("Description");
 
                     b.Property<DateTime>("From");
-
-                    b.Property<bool>("Invisible");
 
                     b.Property<string>("Name");
 

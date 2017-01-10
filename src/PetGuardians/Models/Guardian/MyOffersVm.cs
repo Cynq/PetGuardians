@@ -7,6 +7,5 @@ namespace PetGuardians.Models.Guardian
     public class MyOffersVm
     {
         public List<Offer> Offers { get; set; }
-        public UserType UserType { get; set; }
     }
 }

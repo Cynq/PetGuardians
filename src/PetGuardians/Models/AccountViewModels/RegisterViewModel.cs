@@ -35,11 +35,6 @@ namespace PetGuardians.Models.AccountViewModels
         [Display(Name = "Powtórz hasło")]
         [Compare("Password", ErrorMessage = "Podane hasła muszą do siebie pasować.")]
         public string ConfirmPassword { get; set; }
-
-        [Display(Name = "Typ konta")]
-        [Required(ErrorMessage = "To pole jest wymagane!")]
-
-        public UserType UserType { get; set; }
         
         [StringLength(50, ErrorMessage = "To pole musi posiadać od {2} do {1} znaków.", MinimumLength = 6)]
         [Required(ErrorMessage = "To pole jest wymagane!")]
@@ -56,13 +51,5 @@ namespace PetGuardians.Models.AccountViewModels
         [Display(Name = "Kod pocztowy")]
         public string PostNumber { get; set; }
 
-    }
-
-    public enum UserType
-    {
-        [Display(Name = "Właściciel")]
-        Owner,
-        [Display(Name = "Opiekun")]
-        Guardian
     }
 }

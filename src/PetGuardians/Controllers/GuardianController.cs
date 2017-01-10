@@ -1,12 +1,10 @@
-using System.Collections.Generic;
+using System;
 using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PetGuardians.Data;
 using PetGuardians.Entities;
-using PetGuardians.Models;
-using PetGuardians.Models.AccountViewModels;
 using PetGuardians.Models.Guardian;
 
 
@@ -25,25 +23,24 @@ namespace PetGuardians.Controllers
         [Route("opieka/szukaj")]
         public IActionResult Index()
         {
-            var user = _context.Users.FirstOrDefault(x => x.Id == UserId);
-
             var offers = _context.Offers
                 .Include(x => x.Offers)
-                .Select(x => new OfferVm
-                {
-                    Id = x.Id,
-                    Name = x.Name,
-                    Description = x.Description,
-                    From = x.From,
-                    To = x.To,
-                    Price = x.Price,
-                    Added = x.Added,
-                    Town = x.Town,
-                    MyOffer = UserId == x.Owner.Id,
-                    CanApply = !x.Offers.Select(u => u.Id).Contains(UserId) && user.Type == UserType.Guardian
-                }).ToList();
+                .Include(x => x.Owner).ToList();
+            var offersVm = offers.Select(x => new OfferVm
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Description = x.Description,
+                From = x.From,
+                To = x.To,
+                Price = x.Price,
+                Added = x.Added,
+                Town = x.Town,
+                MyOffer = UserId == x.Owner.Id,
+                CanApply = x.Offers != null && !x.Offers.Select(u => u.Id).Contains(UserId)
+            }).ToList();
 
-            return View(offers);
+            return View(offersVm);
         }
 
         [Route("opieka/zaoferuj")]
@@ -89,17 +86,11 @@ namespace PetGuardians.Controllers
         [Route("opieka/moje")]
         public IActionResult MyOffers()
         {
-            var user = _context.Users.FirstOrDefault(x => x.Id == UserId);
-            List<Offer> offers;
-
-            offers = user.Type == UserType.Owner 
-                ? _context.Offers.Where(x => x.Owner.Id == UserId).ToList() 
-                : _context.Offers.Where(x => x.Offers.Select(y => y.Id).Contains(UserId)).ToList();
+            var offers = _context.Offers.Where(x => x.Owner.Id == UserId).ToList();
 
             var model = new MyOffersVm
             {
-                Offers = offers,
-                UserType = user.Type
+                Offers = offers
             };
 
             return View(model);
@@ -144,9 +135,32 @@ namespace PetGuardians.Controllers
         }
 
         [Route("opieka/zaakceptuj/{id}")]
-        public IActionResult Aprove(string id)
+        public IActionResult Aprove(int id, string userId)
         {
-            throw new System.NotImplementedException();
+            var offerToAprove = _context.Offers
+                .Include(o => o.Owner)
+                .FirstOrDefault(o => o.Id == id);
+
+            if (offerToAprove.Owner.Id == UserId)
+            {
+                var client = _context.Users.FirstOrDefault(u => u.Id == userId);
+                var owner = _context.Users.FirstOrDefault(u => u.Id == offerToAprove.Owner.Id);
+
+                var message = new Message
+                {
+                    SentTime = DateTime.Now,
+                    From = owner,
+                    To = client,
+                    Body =
+                        $"{owner.FirstName} {owner.LastName} zaakceptowa³ twoje zg³oszenie opieki dla og³oszenia: {offerToAprove.Name}. Prosimy siê zg³osiæ po szczegó³y na numer {owner.PhoneNumber}"
+                };
+                offerToAprove.Invisible = true;
+
+                _context.Messages.Add(message);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

@@ -64,7 +64,6 @@ namespace PetGuardians.Controllers
                 PostNumber = user.Address.PostNumber,
                 Town = user.Address.Town,
                 Email = user.Email,
-                UserType = user.Type,
                 HasPassword = await _userManager.HasPasswordAsync(user),
                 PhoneNumber = await _userManager.GetPhoneNumberAsync(user),
                 TwoFactor = await _userManager.GetTwoFactorEnabledAsync(user),

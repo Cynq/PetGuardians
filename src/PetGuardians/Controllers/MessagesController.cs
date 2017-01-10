@@ -25,7 +25,7 @@ namespace PetGuardians.Controllers
             var messages = _context.Messages
                 .Include(msg => msg.From)
                 .Include(msg => msg.To)
-                .Where(msg => msg.From.Id == UserId)
+                .Where(msg => msg.To.Id == UserId)
                 .ToList();
 
             return View(messages);

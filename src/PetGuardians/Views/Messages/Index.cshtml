@@ -1,48 +1,45 @@
-@model List<PetGuardians.Entities.Message>
+Ôªø@model List<PetGuardians.Entities.Message>
 
 @{
-    ViewBag.Title = "moje wiadomoúci";
+    ViewBag.Title = "moje wiadomo≈õci";
 }
 
-<h2>moje wiadomoúci</h2>
+<h2>Wiadomo≈õci</h2>
 
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
-    <tr>
-        <th>
-            treúÊ
-        </th>
-        <th>
-            data wys≥ania
-        </th>
-        <th>
-            uøytkownik
-        </th>
-        <th></th>
-    </tr>
+        <tr>
+            <th>
+                tre≈õƒá
+            </th>
+            <th>
+                data wys≈Çania
+            </th>
+            <th>
+                u≈ºytkownik
+            </th>
+            <th>
+                
+            </th>
+        </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Body)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SentTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.To)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Body)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SentTime)
+                </td>
+                <td>
+                    @($"{item.From.FirstName} {item.From.LastName}")
+                </td>
+                <td>
+                    <a href="wiadomosci/nowa/@item.From.Id}" class="btn btn-default">napisz</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

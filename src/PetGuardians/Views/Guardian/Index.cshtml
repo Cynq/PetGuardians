@@ -2,7 +2,7 @@
 
 <div class="container">
     <h3>Wyszukaj ofertę dla siebie</h3>
-    <table class="table table-hover">
+    <table class="table table-hover col-md-12">
         <tr>
             <th>Nazwa oferty</th>
             <th>Opis</th>
@@ -14,20 +14,28 @@
         </tr>
         @foreach (var offer in Model)
         {
-            <tr>
+            <tr @(offer.MyOffer ? @"class=success" : "class=info")>
                 <td>@offer.Name</td>
                 <td>@offer.Description</td>
                 <td>@offer.Town</td>
                 <td>@offer.From.ToString("d")</td>
                 <td>@offer.To.ToString("d")</td>
                 <td style="white-space: nowrap;">@offer.Price zł</td>
-                @if (offer.CanApply)
+                @if(offer.MyOffer)
                 {
-                    <td><a href="/opieka/aplikuj/@offer.Id" class="btn btn-success">Aplikuj</a></td>
+                    <td>
+                        <a href="/opieka/@offer.Id" class="btn btn-default">Moja oferta</a>
+                    </td>
                 }
-                else if(offer.MyOffer)
+                else if (offer.CanApply)
                 {
-                    <td><a href="/opieka/@offer.Id" class="btn btn-default">Moja oferta</a></td>
+                    <td>
+                        <a href="/opieka/aplikuj/@offer.Id" class="btn btn-success">Aplikuj</a>
+                    </td>
+                }
+                else
+                {
+                    <td></td>
                 }
                 <td><a href="/wiadomosci/nowa/@offer.Id" class="btn btn-info">Wyślij pytanie</a></td>
             </tr>

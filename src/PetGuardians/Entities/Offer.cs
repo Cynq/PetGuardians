@@ -9,6 +9,7 @@ namespace PetGuardians.Entities
         public Offer()
         {
             Added = DateTime.Now;
+            Offers = new HashSet<ApplicationUser>();
         }
         
         [Key]
@@ -36,5 +37,6 @@ namespace PetGuardians.Entities
 
         public ApplicationUser Owner { get; set; }
         public ICollection<ApplicationUser> Offers { get; set; }
+        public bool Invisible { get; set; }
     }
 }

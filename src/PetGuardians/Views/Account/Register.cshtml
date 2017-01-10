@@ -6,7 +6,7 @@
 <h2>@ViewData["Title"].</h2>
 
 <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
-    <h4>Stwórz konto opiekuna bądź właściciela.</h4>
+    <h4>Stwórz nowe konto.</h4>
     <hr />
     <div class="form-group">
         <label asp-for="FirstName" class="col-md-2 control-label"></label>
@@ -69,17 +69,6 @@
         <div class="col-md-10">
             <input asp-for="ConfirmPassword" class="form-control" />
             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="UserType" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <select asp-for="UserType" class="form-control">
-                <option value="">Wybierz</option>
-                <option value="0">Właściciel</option>
-                <option value="1">Opiekun</option>
-            </select>
-            <span asp-validation-for="UserType" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group">

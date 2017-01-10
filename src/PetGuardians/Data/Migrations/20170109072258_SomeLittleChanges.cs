@@ -1,25 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
-using PetGuardians.Models.AccountViewModels;
 
 namespace PetGuardians.Data.Migrations
 {
-    public partial class AddedTypeToUser : Migration
+    public partial class SomeLittleChanges : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
-                name: "Type",
-                table: "AspNetUsers",
-                nullable: false);
+            migrationBuilder.AddColumn<bool>(
+                name: "Invisible",
+                table: "Offers",
+                nullable: false,
+                defaultValue: false);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Type",
-                table: "AspNetUsers");
+                name: "Invisible",
+                table: "Offers");
         }
     }
 }

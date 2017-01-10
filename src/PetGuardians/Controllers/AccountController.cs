@@ -115,8 +115,7 @@ namespace PetGuardians.Controllers
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Address = new Address { Street = model.Street, PostNumber = model.PostNumber, Town = model.Town},
-                    PhoneNumber = model.PhoneNumber,
-                    Type = model.UserType
+                    PhoneNumber = model.PhoneNumber
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
