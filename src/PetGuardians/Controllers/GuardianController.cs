@@ -25,6 +25,7 @@ namespace PetGuardians.Controllers
         public IActionResult Index()
         {
             var offers = _context.Offers
+                .Include(x => x.Owner)
                 .Include(x => x.Offers).ToList();
 
             var offersVm = offers.Select(x => new OfferVm
@@ -39,10 +40,19 @@ namespace PetGuardians.Controllers
                 Town = x.Town,
                 MyOffer = UserId == x.Owner.Id,
                 CanApply = x.Offers != null && !x.Offers.Select(u => u.Id).Contains(UserId),
-                Owner = x.Owner               
+                Owner = x.Owner,
+                CanRate = CheckIfCanRate(x) 
             }).ToList();
 
             return View(offersVm);
+        }
+
+        private bool CheckIfCanRate(Offer offer)
+        {
+            if (offer.Owner.Id != UserId || offer.Offers.Any(o => o.Id == UserId))
+                return false;
+
+            return offer.Invisible;
         }
 
         [Route("opieka/zaoferuj")]
