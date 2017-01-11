@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PetGuardians.Data;
+using PetGuardians.Entities;
+using System;
+using PetGuardians.Models;
 
 namespace PetGuardians.Controllers
 {
@@ -26,15 +26,45 @@ namespace PetGuardians.Controllers
                 .Include(msg => msg.From)
                 .Include(msg => msg.To)
                 .Where(msg => msg.To.Id == UserId)
+                .OrderByDescending(m => m.SentTime)
                 .ToList();
 
-            return View(messages);
+            var model = new MessagesIndexVm
+            {
+                Messages = messages,
+                UserId = UserId
+            };
+
+            return View(model);
         }
 
         [Route("wiadomosci/nowa/{id}")]
         public IActionResult Create(string id)
         {
-            return View(id);
+            var reciver = _context.Users.FirstOrDefault(u => u.Id == id);
+            var model = new Message
+            {
+                To = reciver
+            };
+
+            return View(model);
+        }
+        
+        [HttpPost]
+        [Route("wiadomosci/nowa/{id}")]
+        public IActionResult Create(Message model)
+        {
+            model.To = _context.Users.FirstOrDefault(u => u.Id == model.To.Id);
+            model.From = _context.Users.FirstOrDefault(u => u.Id == UserId);
+            model.SentTime = DateTime.Now;
+
+            var rates = _context.Rates.ToList();
+
+
+            _context.Entry(model).State = EntityState.Added;
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

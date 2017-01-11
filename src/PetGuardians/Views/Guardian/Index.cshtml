@@ -32,12 +32,16 @@
                     <td>
                         <a href="/opieka/aplikuj/@offer.Id" class="btn btn-success">Aplikuj</a>
                     </td>
+                    <td>
+                        <a href="/wiadomosci/nowa/@offer.Owner.Id" class="btn btn-info">Wyślij pytanie</a>
+                    </td>
                 }
-                else
+                @if(offer.CanRate)
                 {
-                    <td></td>
+                    <td>
+                        <a href="/opieka/ocen/@offer.Owner.Id"
+                    </td>
                 }
-                <td><a href="/wiadomosci/nowa/@offer.Id" class="btn btn-info">Wyślij pytanie</a></td>
             </tr>
         }
     </table>

@@ -6,10 +6,11 @@ using Microsoft.EntityFrameworkCore;
 using PetGuardians.Data;
 using PetGuardians.Entities;
 using PetGuardians.Models.Guardian;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace PetGuardians.Controllers
 {
+    [Authorize]
     public class GuardianController : Controller
     {
         private ApplicationDbContext _context;
@@ -24,8 +25,8 @@ namespace PetGuardians.Controllers
         public IActionResult Index()
         {
             var offers = _context.Offers
-                .Include(x => x.Offers)
-                .Include(x => x.Owner).ToList();
+                .Include(x => x.Offers).ToList();
+
             var offersVm = offers.Select(x => new OfferVm
             {
                 Id = x.Id,
@@ -37,7 +38,8 @@ namespace PetGuardians.Controllers
                 Added = x.Added,
                 Town = x.Town,
                 MyOffer = UserId == x.Owner.Id,
-                CanApply = x.Offers != null && !x.Offers.Select(u => u.Id).Contains(UserId)
+                CanApply = x.Offers != null && !x.Offers.Select(u => u.Id).Contains(UserId),
+                Owner = x.Owner               
             }).ToList();
 
             return View(offersVm);
@@ -127,7 +129,6 @@ namespace PetGuardians.Controllers
         {
             if (model.Owner.Id == UserId)
             {
-                
                 _context.Entry(model).State = EntityState.Modified;
                 _context.SaveChanges();
             }

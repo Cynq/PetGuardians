@@ -1,4 +1,4 @@
-﻿@model List<PetGuardians.Entities.Message>
+﻿@model MessagesIndexVm
 
 @{
     ViewBag.Title = "moje wiadomości";
@@ -24,7 +24,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Messages)
         {
             <tr>
                 <td>
@@ -37,7 +37,7 @@
                     @($"{item.From.FirstName} {item.From.LastName}")
                 </td>
                 <td>
-                    <a href="wiadomosci/nowa/@item.From.Id}" class="btn btn-default">napisz</a>
+                    <a href="wiadomosci/nowa/@item.From.Id" class="btn btn-default">napisz</a>
                 </td>
             </tr>
         }

@@ -79,7 +79,7 @@ namespace PetGuardians.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Niepoprawne hasło bądź nazwa użytkownika.");
                     return View(model);
                 }
             }

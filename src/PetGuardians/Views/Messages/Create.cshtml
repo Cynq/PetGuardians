@@ -1,40 +1,32 @@
-@model PetGuardians.Entities.Message
+﻿@model PetGuardians.Entities.Message
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Wyślij wiadomość";
 }
 
-<h2>Create</h2>
+<h2>Wyślij wiadomość do @($"{Model.To.FirstName} {Model.To.LastName}")</h2>
 
-<form asp-action="Create">
+<form asp-action="Create" method="post">
     <div class="form-horizontal">
-        <h4>Messages</h4>
-        <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
             <label asp-for="Body" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="Body" class="form-control" />
+                <textarea asp-for="Body" class="form-control" rows="4"></textarea>
                 <span asp-validation-for="Body" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="SentTime" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="SentTime" class="form-control" />
-                <span asp-validation-for="SentTime" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Wyślij" class="btn btn-default" />
             </div>
         </div>
+        <input hidden name="To.Id" value="@Model.To.Id" />
     </div>
 </form>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Powrót do listy</a>
 </div>
 
 @section Scripts {

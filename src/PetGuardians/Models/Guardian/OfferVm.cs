@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PetGuardians.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -40,5 +41,7 @@ namespace PetGuardians.Models.Guardian
         public bool MyOffer { get; set; }
 
         public bool CanApply { get; set; }
+        public bool CanRate { get; set; }
+        public ApplicationUser Owner { get; internal set; }
     }
 }

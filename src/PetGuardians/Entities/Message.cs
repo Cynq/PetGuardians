@@ -9,10 +9,13 @@ namespace PetGuardians.Entities
 
         [Display(Name = "treść")]
         public string Body { get; set; }
+
         [Display(Name = "od")]
         public ApplicationUser From { get; set; }
+
         [Display(Name = "do")]
         public ApplicationUser To { get; set; }
+
         [Display(Name = "data wysłania")]
         public DateTime SentTime { get; set; }
     }
